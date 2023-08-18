@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OrderManagement.Core.Contracts;
 using OrderManagement.Core.Models.Requests;
+using OrderManagement.Core.Services;
 using OrderManagement.Data.Entities;
 
 namespace OrderManagement.API.Controllers
@@ -35,6 +36,14 @@ namespace OrderManagement.API.Controllers
         {
             var newCustomer = await _customerService.CreateCustomerAsync(customer);
             return Created("/customers/" + newCustomer.Id, newCustomer);            
+        }
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [HttpPatch("{customerId:long}")]
+        public async Task<ActionResult<Order>> UpdateCustomerConfirmedOrders(long customerId)
+        {
+            await _customerService.UpdateCustomerConfirmedOrders(customerId);
+            return NoContent();
         }
     }
 }

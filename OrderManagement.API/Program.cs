@@ -16,6 +16,7 @@ namespace OrderManagement.API
             builder.Services.ConfigureCustomerService();
             builder.Services.ConfigureOrderService();
             builder.Services.ConfigureValidation();
+            builder.Services.ConfigureServiceBus(builder.Configuration);
 
             builder.Services.AddControllers(options =>
             {

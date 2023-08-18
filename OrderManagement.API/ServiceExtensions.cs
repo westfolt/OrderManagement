@@ -1,6 +1,10 @@
-﻿using FluentValidation;
+﻿using Azure.Messaging.ServiceBus;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using OrderManagement.Core.Contracts;
+using OrderManagement.Core.Models.Messages;
 using OrderManagement.Core.Models.Requests;
 using OrderManagement.Core.Services;
 using OrderManagement.Core.Validation;
@@ -29,6 +33,15 @@ namespace OrderManagement.API
         {
             services.AddScoped<IValidator<CreateCustomerRequest>, CreateCustomerRequestValidator>();
             services.AddScoped<IValidator<CreateOrderRequest>, CreateOrdRequestValidator>();
+        }
+
+        public static void ConfigureServiceBus(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddSingleton(x =>
+                new ServiceBusClient(configuration["ServiceBus:ConnectionString"]));
+            services.AddSingleton(x =>
+                x.GetRequiredService<ServiceBusClient>().CreateSender(configuration["ServiceBus:TopicName"]));
+            services.AddScoped<IServiceBusService<OrderCreatedMessage>, ServiceBusOrderService>();
         }
     }
 }
