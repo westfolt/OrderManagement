@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\OrderManagement.Core\OrderManagement.Core.csproj" />
-    <ProjectReference Include="..\..\OrderManagement.Data\OrderManagement.Data.csproj" />
+    <ProjectReference Include="..\OrderManagement.Core\OrderManagement.Core.csproj" />
+    <ProjectReference Include="..\OrderManagement.Data\OrderManagement.Data.csproj" />
   </ItemGroup>
 
 </Project>
