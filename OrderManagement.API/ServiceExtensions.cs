@@ -1,8 +1,6 @@
 ﻿using Azure.Messaging.ServiceBus;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using OrderManagement.Core.Contracts;
 using OrderManagement.Core.Models.Messages;
 using OrderManagement.Core.Models.Requests;

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OrderManagement.Core.Contracts;
 using OrderManagement.Core.Models.Requests;
-using OrderManagement.Core.Services;
 using OrderManagement.Data.Entities;
 
 namespace OrderManagement.API.Controllers
@@ -16,7 +15,7 @@ namespace OrderManagement.API.Controllers
         {
             _customerService = customerService;
         }
-        
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> GetAllCustomersAsync()
         {
@@ -35,7 +34,7 @@ namespace OrderManagement.API.Controllers
         public async Task<ActionResult<Customer>> CreateCustomerAsync(CreateCustomerRequest customer)
         {
             var newCustomer = await _customerService.CreateCustomerAsync(customer);
-            return Created("/customers/" + newCustomer.Id, newCustomer);            
+            return Created("/customers/" + newCustomer.Id, newCustomer);
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]

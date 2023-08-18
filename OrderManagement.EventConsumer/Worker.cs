@@ -1,9 +1,5 @@
 using Azure.Messaging.ServiceBus;
-using Microsoft.Extensions.Configuration;
-using OrderManagement.Core.Contracts;
 using OrderManagement.Core.Models.Messages;
-using OrderManagement.Data.Contracts;
-using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 
@@ -15,7 +11,7 @@ namespace OrderManagement.EventConsumer
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _configuration;
 
-        public Worker(ServiceBusProcessor processor, 
+        public Worker(ServiceBusProcessor processor,
             IHttpClientFactory httpClienFactory,
             IConfiguration configuration)
         {

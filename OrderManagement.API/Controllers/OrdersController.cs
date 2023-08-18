@@ -34,7 +34,7 @@ namespace OrderManagement.API.Controllers
         public async Task<ActionResult<Order>> CreateOrderAsync(CreateOrderRequest order)
         {
             var newOrder = await _orderService.CreateOrderAsync(order);
-            return Created("/orders/" + newOrder.Id, newOrder);            
+            return Created("/orders/" + newOrder.Id, newOrder);
         }
 
         [HttpPatch("{orderId:long}")]

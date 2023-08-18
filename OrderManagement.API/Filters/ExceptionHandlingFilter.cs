@@ -24,7 +24,7 @@ namespace OrderManagement.API.Filters
                 context.Result = new BadRequestObjectResult(context.Exception.Message);
                 context.ExceptionHandled = true;
             }
-            else if(context.Exception is NotFoundException)
+            else if (context.Exception is NotFoundException)
             {
                 context.Result = new NotFoundObjectResult(context.Exception.Message);
                 context.ExceptionHandled = true;

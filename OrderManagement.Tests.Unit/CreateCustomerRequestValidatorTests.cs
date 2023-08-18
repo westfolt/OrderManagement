@@ -1,7 +1,6 @@
 using NUnit.Framework;
 using OrderManagement.Core.Models.Requests;
 using OrderManagement.Core.Validation;
-using OrderManagement.Data.Entities;
 
 namespace OrderManagement.Tests.Unit
 {

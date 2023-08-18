@@ -1,6 +1,4 @@
-using Microsoft.EntityFrameworkCore;
 using OrderManagement.API.Filters;
-using OrderManagement.Data;
 
 namespace OrderManagement.API
 {

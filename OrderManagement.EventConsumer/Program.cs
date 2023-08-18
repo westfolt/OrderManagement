@@ -1,12 +1,4 @@
 using Azure.Messaging.ServiceBus;
-using FluentValidation;
-using OrderManagement.Core.Contracts;
-using OrderManagement.Core.Models.Messages;
-using OrderManagement.Core.Models.Requests;
-using OrderManagement.Core.Services;
-using OrderManagement.Core.Validation;
-using OrderManagement.Data.Contracts;
-using OrderManagement.Data.Repositories;
 
 namespace OrderManagement.EventConsumer
 {
